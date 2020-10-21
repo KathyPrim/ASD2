@@ -22,30 +22,27 @@ int BinarySearsh(int* array, int size, int search) {
 }
 
 void quickSort(int* array, int left, int right) {
-	int i = left;
-	int j = right-1;
-	int pivot = array[right];
-	do {
-		while (array[i] < pivot) { // last right element < pivot
+	int pivot = array[(right + left) / 2];
+	int i = left, j = right;
+	do
+	{
+		while (array[i] < pivot)
 			i++;
-		}
-		//j = i + 1; // from i+1 to right 
-		while (array[j] > pivot) { // last left element > pivot
+		while (array[j] > pivot)
+			j--;
+		if (i <= j) // swap
+		{
+			int tmp = array[i];
+			array[i] = array[j];
+			array[j] = tmp;
+			i++;
 			j--;
 		}
-		if (i<=j) { // exchange
-			int tmp = array[j];
-			array[j] = array[i];
-			array[i] = tmp;
-			for (int k = 0; k < 9; k++) {
-				cout << array[k] << " ";
-			}
-			cout << endl;
-		}
-		else break;
-	} while (i <= j);
-	if (i < right) quickSort(array, i, right);
-	if (j > left) quickSort(array, left, j);
+	} while (i < j);
+	if (i < right) //if they did not go beyond the bounds of the array
+		quickSort(array, i, right);
+	if (j > left)
+		quickSort(array, left, j);
 }
 
 void QuickSort(int* array, int size){
@@ -93,20 +90,23 @@ void BogoSort(int* array, int size){
 }
 
 void CountingSort(char* array, int size){
-	char max = array[0];
+	char max = array[0], min = array[0];
 	for (int i = 0; i < size; i++) {
 		if (array[i] > max) max = array[i];
+		if (array[i] < min) min = array[i];
 	}
-	unsigned* count = new unsigned[max+1];
+	unsigned* count = new unsigned[max-min+1];
 	count = { 0 };
 	for (int i = 0; i < size; i++) {
-		count[array[i]] ++;
+		count[array[i]-min] ++;
 	}
 	int counter = 0;
-	for (int i = 0; i < max+1; i++){
-		for (unsigned j = 0; j < count[i]; j++) {
-			array[counter] = i;
-			counter++;
+	if (count) {
+		for (int i = 0; i < max + 1; i++) {
+			for (unsigned j = 0; j < count[i]; j++) {
+				array[counter] = i + min;
+				counter++;
+			}
 		}
 	}
 }
