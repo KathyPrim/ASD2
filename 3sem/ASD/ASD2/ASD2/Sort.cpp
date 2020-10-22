@@ -90,21 +90,24 @@ void BogoSort(int* array, int size){
 }
 
 void CountingSort(char* array, int size){
-	char max = array[0], min = array[0];
+	unsigned int max = array[0], min = array[0];
 	for (int i = 0; i < size; i++) {
 		if (array[i] > max) max = array[i];
 		if (array[i] < min) min = array[i];
 	}
-	unsigned* count = new unsigned[max-min+1];
-	count = { 0 };
+	unsigned int rasn = max - min;
+	unsigned int* count = new unsigned[rasn+1];
+	for (int i = 0; i < rasn + 1; i++) {
+		count[i] = 0;
+	}
 	for (int i = 0; i < size; i++) {
-		count[array[i]-min] ++;
+		count[(int)array[i]-min] ++;
 	}
 	int counter = 0;
 	if (count) {
-		for (int i = 0; i < max + 1; i++) {
+		for (int i = 0; i < rasn+1; i++) {
 			for (unsigned j = 0; j < count[i]; j++) {
-				array[counter] = i + min;
+				array[counter] = (char) i + min;
 				counter++;
 			}
 		}

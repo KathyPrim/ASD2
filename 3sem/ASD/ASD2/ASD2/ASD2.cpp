@@ -5,9 +5,9 @@
 using namespace std;
 
 int main() {
-	for (int i = 10; i < 100001; i = 10 * i) {
-		for (int j = 0; j < 10; j++) {
-			BubbleSortTime(i);
-		}
+	char b[] = "algorithm";
+	CountingSort(b, 9);
+	for (int i = 0; i < 9; i++) {
+		cout << b[i];
 	}
 }

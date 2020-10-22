@@ -1,0 +1,7 @@
+﻿  ASD2_test.cpp
+C:\Users\User\source\repos\3sem\ASD\ASD2\ASD2\Sort.cpp(95,16): warning C4018: >: несоответствие типов со знаком и без знака
+C:\Users\User\source\repos\3sem\ASD\ASD2\ASD2\Sort.cpp(96,16): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\User\source\repos\3sem\ASD\ASD2\ASD2\Sort.cpp(100,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\User\source\repos\3sem\ASD\ASD2\ASD2\Sort.cpp(108,21): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\User\source\repos\3sem\ASD\ASD2\ASD2\Sort.cpp(22): warning C4715: BinarySearsh: значение возвращается не при всех путях выполнения
+  ASD2_test.vcxproj -> C:\Users\User\source\repos\3sem\ASD\ASD2\Debug\ASD2_test.dll
